@@ -91,3 +91,8 @@ function checkWinner(computerChoice, playerChoice) {
         }
     }   
 }
+
+function updateScores(result) {
+    playerScore.innerText = parseInt(playerScore.innerText) + result[0];
+    computerScore.innerText = parseInt(computerScore.innerText) + result[1]; 
+}
