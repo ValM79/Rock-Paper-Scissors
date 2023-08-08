@@ -24,7 +24,7 @@ for (let button of buttons) {
 }
 
 /**
- * The mane game function. Accept one parameter whicj
+ * The mane game function. Accept one parameter which
  * is the data choice value of the selected button
  */
 
@@ -41,4 +41,53 @@ function playerGame(playerChoice) {
     let result = checkWinner(choices[computerChoice], choices[playerChoice]);
 
     updateScores(result);
+}
+
+/**
+ * Checks to see who the winner is, it accepts two atrings as
+ */
+
+function checkWinner(computerChoice, playerChoice) {
+
+    // Tie! same choise result - don't update the score
+    if(computerChoice == playerChoice) {
+        message.innerText = 'Tie!';
+        return [0, 0];
+    }
+
+    if(computerChoice == 'rock'){
+        //player wins
+        if(playerChoice == 'paper') {
+            message.innerText = 'Player Wins!';
+            return [1,0];
+        } else {
+            //computer wins!
+            message.innerText = 'Computer Wins!';
+            return [0, 1];
+        } 
+    } 
+
+    if(computerChoice == 'paper') {
+        // player wins!
+        if(playerChoice == 'scissers') {
+            message.innerText = 'player wins!';
+            return [1, 0];
+        } else {
+            //computer wins
+            message.innerText = 'computer wins!';
+            return [0, 1];
+        }
+    }
+
+    if(computerChoice == 'scissers') {
+        //player wins
+        if(playerChoice == 'rock'){
+            message.innerText = 'player wins';
+            return [1, 0];
+        } else {
+            //computer wins
+            message.innerText = 'computer wins';
+            return [0, 1];
+        }
+    }   
 }
