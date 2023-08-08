@@ -22,3 +22,23 @@ for (let button of buttons) {
         playerGame(playerChoice);
     });
 }
+
+/**
+ * The mane game function. Accept one parameter whicj
+ * is the data choice value of the selected button
+ */
+
+function playerGame(playerChoice) {
+
+    playerImage.src = `images/${choices[playerChoice]}.png`;
+    playerImage.alt = choices[playerChoice];
+    
+    let computerChoice = Math.floor(Math.random() * 3);
+    
+    computerImage.src = `images/${choices[computerChoice]}.png`;
+    computerImage.alt = choices[computerChoice];
+
+    let result = checkWinner(choices[computerChoice], choices[playerChoice]);
+
+    updateScores(result);
+}
